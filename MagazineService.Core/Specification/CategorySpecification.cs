@@ -1,4 +1,5 @@
 ﻿using Ardalis.Specification;
+using MagazineService.Core.Dtos.Category;
 using MagazineService.Core.Entites;
 using System;
 using System.Collections;
@@ -11,13 +12,20 @@ namespace MagazineService.Core.Specification
 {
     public class CategorySpecification
     {
-        public class GetPurchasedCategories : Specification<AppCategory>
+        public class GetPurchasedCategories : Specification<AppCategory, CategoryAndQuantityDto>
         {
             public GetPurchasedCategories(int userId)
             {
-                Query.Include(c => c.AppProducts).ThenInclude(pro => pro.AppPositions)
-                .Where(c => c.AppProducts.Any(p => p.AppPositions
-                .Any(pos => pos.AppOrder.AppClientId == userId)));
+                Query.Where(c => c.AppProducts
+                .Any(p => p.AppPositions.Any(pos => pos.AppOrder.AppClientId == userId)))
+                .Select(c => new CategoryAndQuantityDto
+                {
+                    Name = c.Name,
+                    Quantity = c.AppProducts
+                        .SelectMany(p => p.AppPositions)
+                        .Where(pos => pos.AppOrder.AppClientId == userId)
+                        .Sum(pos => pos.ProductCount)
+                });
 
             }
         }

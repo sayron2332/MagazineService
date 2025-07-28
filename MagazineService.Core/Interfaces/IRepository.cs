@@ -18,5 +18,7 @@ namespace MagazineService.Core.Interfaces
         Task Delete(object id);
         Task Delete(TEntity entityToDelete);
         Task Update(TEntity ententityToUpdate);
+        Task<IEnumerable<TResult>> GetListBySpec<TResult>(ISpecification<TEntity, TResult> specification);
+
     }
 }

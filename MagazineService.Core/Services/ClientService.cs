@@ -28,17 +28,6 @@ namespace MagazineService.Core.Services
         }
 
         public async Task<IEnumerable<ClientAndDateDto>> GetLastCustomersByDayOrder(int day)
-        {
-            var customers = await _repository.GetListBySpec(new ClientSpecification.GetByDay(day));
-
-            var result = customers.Select(x => new ClientAndDateDto
-            {
-                Id = x.Id,
-                FullName = x.Name + " " + x.Surname + " " + x.MiddleName,
-                Date = x.AppOrders.Max(o => o.DateOrder)
-            });
-
-            return result;
-        }
+        => await _repository.GetListBySpec(new ClientSpecification.GetByDay(day));
     }
 }

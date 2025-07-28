@@ -15,19 +15,6 @@ namespace MagazineService.Core.Services
     {
         private readonly IRepository<AppCategory> _repository = repository;
         public async Task<IEnumerable<CategoryAndQuantityDto>> GetListPopularCategoryByUserId(int Id)
-        {
-            var categories = await _repository
-                .GetListBySpec(new CategorySpecification.GetPurchasedCategories(Id));
-
-            IEnumerable<CategoryAndQuantityDto> result = categories.Select(c => new CategoryAndQuantityDto
-            {
-                Name = c.Name,
-                Quantity = c.AppProducts.SelectMany(p => p.AppPositions)
-                .Sum(pos => pos.ProductCount)
-            });
-
-            return result;
-        }
-
+        => await _repository.GetListBySpec(new CategorySpecification.GetPurchasedCategories(Id));
     }
 }

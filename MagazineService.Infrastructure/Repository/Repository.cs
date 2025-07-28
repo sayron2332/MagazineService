@@ -85,5 +85,12 @@ namespace MagazineService.Infrastructure.Repository
                     context.Entry(ententityToUpdate).State = EntityState.Modified;
                 });
         }
+
+        public async Task<IEnumerable<TResult>> GetListBySpec<TResult>(ISpecification<TEntity, TResult> specification)
+        {
+            var evaluator = new SpecificationEvaluator();
+            var query = evaluator.GetQuery(dbSet.AsQueryable(), specification);
+            return await query.ToListAsync();
+        }
     }
 }
