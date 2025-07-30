@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagazineService.Api", "MagazineService.Api\MagazineService.Api.csproj", "{7E2E4646-8F6B-4711-9BAE-7374996D1A61}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagazineService.Core", "MagazineService.Core\MagazineService.Core.csproj", "{C2E0B474-6DBC-4126-8D8C-31B022FD8D8F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagazineService.Infrastructure", "MagazineService.Infrastructure\MagazineService.Infrastructure.csproj", "{EEC215EB-A1AD-45C8-B0D4-2E4EC99ABAF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagazineService.Tests", "MagazineService.Tests\MagazineService.Tests.csproj", "{5604916B-CC5E-4732-B726-738F2F6E1345}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{EEC215EB-A1AD-45C8-B0D4-2E4EC99ABAF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEC215EB-A1AD-45C8-B0D4-2E4EC99ABAF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEC215EB-A1AD-45C8-B0D4-2E4EC99ABAF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5604916B-CC5E-4732-B726-738F2F6E1345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5604916B-CC5E-4732-B726-738F2F6E1345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5604916B-CC5E-4732-B726-738F2F6E1345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5604916B-CC5E-4732-B726-738F2F6E1345}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
